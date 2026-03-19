@@ -1,0 +1,75 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b8d5ad21eddf0e1439c54b225f3e8489, type: 3}
+  m_Name: NewFloorData
+  m_EditorClassIdentifier: Assembly-CSharp::TowerFloorData
+  m_listFloors:
+  - m_strFloorName: Floor001
+    m_spawnPatterns:
+    - m_monsterPrefab: {fileID: 6363248155167065431, guid: 7b9a6f0ba55443f468c4048a1e93aa75, type: 3}
+      m_count: 10
+    m_fSpawnInterval: 0.1
+    m_fHpMultiplier: 1
+  - m_strFloorName: Floor002
+    m_spawnPatterns:
+    - m_monsterPrefab: {fileID: 6363248155167065431, guid: 7b9a6f0ba55443f468c4048a1e93aa75, type: 3}
+      m_count: 6
+    - m_monsterPrefab: {fileID: 8128940800519642309, guid: 7505bf4ad895d674b8d556b2d515e648, type: 3}
+      m_count: 2
+    - m_monsterPrefab: {fileID: 6363248155167065431, guid: 7b9a6f0ba55443f468c4048a1e93aa75, type: 3}
+      m_count: 2
+    m_fSpawnInterval: 0.1
+    m_fHpMultiplier: 1
+  - m_strFloorName: Floor003
+    m_spawnPatterns:
+    - m_monsterPrefab: {fileID: 6363248155167065431, guid: 7b9a6f0ba55443f468c4048a1e93aa75, type: 3}
+      m_count: 4
+    - m_monsterPrefab: {fileID: 8617290860159976072, guid: a1f5938be4fc1a5408184fd157c27d63, type: 3}
+      m_count: 6
+    m_fSpawnInterval: 0.1
+    m_fHpMultiplier: 1
+  - m_strFloorName: Floor004
+    m_spawnPatterns:
+    - m_monsterPrefab: {fileID: 972218532549175154, guid: 2e5c1eafdf9ed0943b0d14a5efdffb5b, type: 3}
+      m_count: 1
+    m_fSpawnInterval: 0.1
+    m_fHpMultiplier: 1
+  - m_strFloorName: Floor005
+    m_spawnPatterns:
+    - m_monsterPrefab: {fileID: 6363248155167065431, guid: 7b9a6f0ba55443f468c4048a1e93aa75, type: 3}
+      m_count: 2
+    - m_monsterPrefab: {fileID: 8128940800519642309, guid: 7505bf4ad895d674b8d556b2d515e648, type: 3}
+      m_count: 3
+    - m_monsterPrefab: {fileID: 8617290860159976072, guid: a1f5938be4fc1a5408184fd157c27d63, type: 3}
+      m_count: 2
+    m_fSpawnInterval: 0.1
+    m_fHpMultiplier: 1
+  - m_strFloorName: Floor006
+    m_spawnPatterns:
+    - m_monsterPrefab: {fileID: 8617290860159976072, guid: a1f5938be4fc1a5408184fd157c27d63, type: 3}
+      m_count: 12
+    m_fSpawnInterval: 0.1
+    m_fHpMultiplier: 1
+  - m_strFloorName: Floor007
+    m_spawnPatterns:
+    - m_monsterPrefab: {fileID: 8128940800519642309, guid: 7505bf4ad895d674b8d556b2d515e648, type: 3}
+      m_count: 4
+    - m_monsterPrefab: {fileID: 6363248155167065431, guid: 7b9a6f0ba55443f468c4048a1e93aa75, type: 3}
+      m_count: 7
+    m_fSpawnInterval: 0.1
+    m_fHpMultiplier: 1
+  - m_strFloorName: Floor008
+    m_spawnPatterns:
+    - m_monsterPrefab: {fileID: 2876417838385695194, guid: 493195ec97fb52e4281465315a26952f, type: 3}
+      m_count: 1
+    m_fSpawnInterval: 0.1
+    m_fHpMultiplier: 1

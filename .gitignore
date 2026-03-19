@@ -1,0 +1,29 @@
+/[Ll]ibrary/
+/[Tt]emp/
+/[Obj]/
+/[Build]/
+/[Builds]/
+/[Logs]/
+/[UserSettings]/
+
+# Visual Studio / Rider 관련
+.vs/
+.idea/
+*.sln
+*.csproj
+*.unityproj
+*.suo
+*.user
+*.userprefs
+*.pidb
+*.booproj
+*.svd
+*.pdb
+*.mdb
+*.opendb
+*.db
+*.VC.db
+
+# OS 관련
+.DS_Store
+Thumbs.db
