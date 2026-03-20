@@ -30,11 +30,11 @@
     ├── 📂 <b>LogoScene</b>
     │   └── <a href="./Assets/Scripts/LogoScene/GameDataManager.cs">GameDataManager.cs</a> (싱글톤 기반 전역 데이터 및 재화 관리)
     ├── 📂 <b>MainScene</b>
-    │   └── 📂 <b>Player</b>
-    │       ├── <a href="./Assets/Scripts/MainScene/Player/InventoryManager.cs">InventoryManager.cs</a> (인벤토리 시스템 메인 로직)
-    │       ├── <a href="./Assets/Scripts/MainScene/Player/EquipManager.cs">EquipManager.cs</a> (장비 장착 및 스탯 연동 제어)
+    │   └── 📂 <b>Inventory</b>
+    │       ├── <a href="./Assets/Scripts/MainScene/Inventory/InventoryManager.cs">InventoryManager.cs</a> (인벤토리 시스템 메인 로직)
+    │       ├── <a href="./Assets/Scripts/MainScene/Inventory/EquipManager.cs">EquipManager.cs</a> (장비 장착 및 스탯 연동 제어)
     │       └── 📂 <b>Items</b>
-    │           └── <a href="./Assets/Scripts/MainScene/Player/Items/ItemSlot.cs">ItemSlot.cs</a> (개별 아이템 슬롯 UI 및 상호작용)
+    │           └── <a href="./Assets/Scripts/MainScene/Inventory/Items/ItemSlot.cs">ItemSlot.cs</a> (개별 아이템 슬롯 UI 및 상호작용)
     └── 📂 <b>BattleScene</b>
         ├── 📂 <b>Managers</b>
         │   └── <a href="./Assets/Scripts/BattleScene/Managers/BattleManager.cs">BattleManager.cs</a> (전투 시나리오 및 스테이지 흐름 관리)
