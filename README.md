@@ -42,13 +42,17 @@
         ├── 📂 <b>Monster</b>
         │   ├── <a href="./Assets/Scripts/BattleScene/Monster/MonsterParent.cs">MonsterParent.cs</a> (몬스터 공통 로직 추상 클래스)
         │   ├── <a href="./Assets/Scripts/BattleScene/Monster/FlockingManager.cs">FlockingManager.cs</a> (군집 대열 중앙 제어 시스템)
-        │   ├── 📂 <b>MonsterSkeleton</b>
-        │   │   └── <a href="./Assets/Scripts/BattleScene/Monster/MonsterSkeleton/Skeleton.cs">Skeleton.cs</a> (일반 해골 몬스터 AI)
-        │   └── 📂 <b>MonsterGoblin</b>
-        │       └── <a href="./Assets/Scripts/BattleScene/Monster/MonsterGoblin/Goblin.cs">Goblin.cs</a> (고블린 군집 버프 패턴 구현)
+        │   ├── 📂 <b>MonsterSkull</b>
+        │   │   └── <a href="./Assets/Scripts/BattleScene/Monster/MonsterSkull/MonsterSkull.cs">MonsterSkull.cs</a> (해골 몬스터 AI)
+        │   ├── 📂 <b>MonsterGoblin</b>
+        │   │   └── <a href="./Assets/Scripts/BattleScene/Monster/MonsterGoblin/MonsterGoblin.cs">MonsterGoblin.cs</a> (고블린 몬스터 AI)
+        │   └── 📂 <b>MonsterSlime</b>
+        │       └── <a href="./Assets/Scripts/BattleScene/Monster/MonsterSlime/MonsterSlime.cs">MonsterSlime.cs</a> (슬라임 몬스터 AI)
         └── 📂 <b>Boss</b>
-            ├── <a href="./Assets/Scripts/BattleScene/Boss/BossSkeletonKing.cs">BossSkeletonKing.cs</a> (해골왕: 광역 참격 패턴)
-            └── <a href="./Assets/Scripts/BattleScene/Boss/BossGoblinKing.cs">BossGoblinKing.cs</a> (고블린왕: 방어 기믹 파훼 패턴)
+            ├── 📂 <b>BossSkull</b>
+            │   └── <a href="./Assets/Scripts/BattleScene/Boss/BossSkull/BossSkull.cs">BossSkull.cs</a> (해골왕: 광역 참격 패턴)
+            └── 📂 <b>BossGoblin</b>
+                └── <a href="./Assets/Scripts/BattleScene/Boss/BossGoblin/BossGoblin.cs">BossGoblin.cs</a> (고블린왕: 방어 기믹 파훼 패턴)
 </pre>
 
 ---
