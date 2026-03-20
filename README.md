@@ -27,23 +27,27 @@
 <pre>
 📂 <b>Assets</b>
 └── 📂 <b>Scripts</b>
+    ├── 📂 <b>LogoScene</b>
+    │   └── <a href="./Assets/Scripts/LogoScene/GameDataManager.cs">GameDataManager.cs</a> (싱글톤 기반 전역 데이터 및 재화 관리)
+    ├── 📂 <b>MainScene</b>
+    │   └── 📂 <b>Player</b>
+    │       ├── <a href="./Assets/Scripts/MainScene/Player/InventoryManager.cs">InventoryManager.cs</a> (인벤토리 시스템 및 아이템 장착 로직)
+    │       └── <a href="./Assets/Scripts/MainScene/Player/EquipManager.cs">EquipManager.cs</a> (장비 데이터와 플레이어 스탯 연동 제어)
     └── 📂 <b>BattleScene</b>
         ├── 📂 <b>Managers</b>
-        │   ├── <a href="./Assets/Scripts/BattleScene/Managers/GameDataManager.cs">GameDataManager.cs</a> (재화 및 스테이지 데이터 관리)
-        │   └── <a href="./Assets/Scripts/BattleScene/Managers/FlockingManager.cs">FlockingManager.cs</a> (몬스터 군집 대열 중앙 제어 로직)
+        │   ├── <a href="./Assets/Scripts/BattleScene/Managers/BattleManager.cs">BattleManager.cs</a> (전투 시퀀스 및 스테이지 흐름 관리)
+        │   └── <a href="./Assets/Scripts/BattleScene/Managers/FlockingManager.cs">FlockingManager.cs</a> (몬스터 군집 대열 중앙 제어 시스템)
         ├── 📂 <b>Player</b>
-        │   ├── <a href="./Assets/Scripts/BattleScene/Player/PlayerController.cs">PlayerController.cs</a> (입력 시스템 및 조작 처리)
-        │   ├── <a href="./Assets/Scripts/BattleScene/Player/PlayerCombat.cs">PlayerCombat.cs</a> (전투 시퀀스 및 스킬 발사 제어)
-        │   ├── <a href="./Assets/Scripts/BattleScene/Player/PlayerBladeSkill.cs">PlayerBladeSkill.cs</a> (관통 참격 스킬 메커니즘)
-        │   ├── <a href="./Assets/Scripts/BattleScene/Player/PlayerAnimationEvent.cs">PlayerAnimationEvent.cs</a> (애니메이션 타이밍 이벤트 관리)
-        │   └── <a href="./Assets/Scripts/BattleScene/Player/PlayerStats.cs">PlayerStats.cs</a> (능력치 데이터 및 동기화)
+        │   ├── <a href="./Assets/Scripts/BattleScene/Player/PlayerController.cs">PlayerController.cs</a> (전투 조작 및 이동 입력 처리)
+        │   ├── <a href="./Assets/Scripts/BattleScene/Player/PlayerCombat.cs">PlayerCombat.cs</a> (공격/방어 및 스킬 발사 시퀀스)
+        │   └── <a href="./Assets/Scripts/BattleScene/Player/PlayerStats.cs">PlayerStats.cs</a> (실시간 전투 스탯 및 체력 관리)
         ├── 📂 <b>Monster</b>
-        │   ├── <a href="./Assets/Scripts/BattleScene/Monster/MonsterParent.cs">MonsterParent.cs</a> (공통 AI 및 피격/사망 추상 클래스)
-        │   ├── <a href="./Assets/Scripts/BattleScene/Monster/Skeleton.cs">Skeleton.cs</a> (일반 근접 공격 패턴 구현)
-        │   └── <a href="./Assets/Scripts/BattleScene/Monster/Goblin.cs">Goblin.cs</a> (몬스터 군집 버프 부여 패턴)
+        │   ├── <a href="./Assets/Scripts/BattleScene/Monster/MonsterParent.cs">MonsterParent.cs</a> (피격 점멸 및 사망 로직 공통 추상 클래스)
+        │   ├── <a href="./Assets/Scripts/BattleScene/Monster/Skeleton.cs">Skeleton.cs</a> (일반 몬스터 AI 패턴 구현)
+        │   └── <a href="./Assets/Scripts/BattleScene/Monster/Goblin.cs">Goblin.cs</a> (군집 버프 부여 특수 패턴 구현)
         └── 📂 <b>Boss</b>
-            ├── <a href="./Assets/Scripts/BattleScene/Boss/BossSkeletonKing.cs">BossSkeletonKing.cs</a> (보스 전용 스킬 시퀀스)
-            └── <a href="./Assets/Scripts/BattleScene/Boss/BossGoblinKing.cs">BossGoblinKing.cs</a> (방어 시스템 기믹 대응 AI)
+            ├── <a href="./Assets/Scripts/BattleScene/Boss/BossSkeletonKing.cs">BossSkeletonKing.cs</a> (해골왕: 광역 참격 패턴 구현)
+            └── <a href="./Assets/Scripts/BattleScene/Boss/BossGoblinKing.cs">BossGoblinKing.cs</a> (고블린왕: 방어 기믹 파훼 패턴 구현)
 </pre>
 
 ---
