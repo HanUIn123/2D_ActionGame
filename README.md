@@ -30,18 +30,15 @@
     ├── 📂 <b>LogoScene</b>
     │   └── <a href="./Assets/Scripts/LogoScene/GameDataManager.cs">GameDataManager.cs</a> (싱글톤 기반 전역 데이터 및 재화 관리)
     ├── 📂 <b>MainScene</b>
+    │   ├── 📂 <b>Player</b>
+    │   │   ├── <a href="./Assets/Scripts/MainScene/Player/PlayerController.cs">PlayerController.cs</a> (플레이어 이동 및 조작 입력 처리)
+    │   │   ├── <a href="./Assets/Scripts/MainScene/Player/PlayerCombat.cs">PlayerCombat.cs</a> (공격/방어 및 스킬 시퀀스 제어)
+    │   │   └── <a href="./Assets/Scripts/MainScene/Player/PlayerStats.cs">PlayerStats.cs</a> (캐릭터 능력치 및 상태 관리)
     │   └── 📂 <b>Inventory</b>
     │       ├── <a href="./Assets/Scripts/MainScene/Inventory/InventoryManager.cs">InventoryManager.cs</a> (인벤토리 시스템 메인 로직)
-    │       ├── <a href="./Assets/Scripts/MainScene/Inventory/EquipManager.cs">EquipManager.cs</a> (장비 장착 및 스탯 연동 제어)
     │       └── 📂 <b>Items</b>
     │           └── <a href="./Assets/Scripts/MainScene/Inventory/Items/ItemSlot.cs">ItemSlot.cs</a> (개별 아이템 슬롯 UI 및 상호작용)
     └── 📂 <b>BattleScene</b>
-        ├── 📂 <b>Managers</b>
-        │   └── <a href="./Assets/Scripts/BattleScene/Managers/BattleManager.cs">BattleManager.cs</a> (전투 시나리오 및 스테이지 흐름 관리)
-        ├── 📂 <b>Player</b>
-        │   ├── <a href="./Assets/Scripts/BattleScene/Player/PlayerController.cs">PlayerController.cs</a> (전투 이동 및 입력 처리)
-        │   ├── <a href="./Assets/Scripts/BattleScene/Player/PlayerCombat.cs">PlayerCombat.cs</a> (공격/방어 및 스킬 시퀀스)
-        │   └── <a href="./Assets/Scripts/BattleScene/Player/PlayerStats.cs">PlayerStats.cs</a> (실시간 전투 스탯 관리)
         ├── 📂 <b>Monster</b>
         │   ├── <a href="./Assets/Scripts/BattleScene/Monster/MonsterParent.cs">MonsterParent.cs</a> (몬스터 공통 로직 추상 클래스)
         │   ├── <a href="./Assets/Scripts/BattleScene/Monster/FlockingManager.cs">FlockingManager.cs</a> (군집 대열 중앙 제어 시스템)
@@ -68,7 +65,7 @@
 
 ### 2. 플레이어 액션 및 성장 시스템
 - **컴포넌트 기반 설계:** 조작, 전투, 스탯 역할을 명확히 분리하여 유지보수성을 높였습니다.
-- **인벤토리 연동:** 아이템 슬롯(`ItemSlot`) 인터페이스를 통해 장비를 실시간 장착/해제하고 스탯에 즉시 반영합니다.
+- **인벤토리 연동:** 아이템 슬롯(`ItemSlot`) 인터페이스를 통해 장비를 실시간 장착/해제하고 캐릭터 정보에 반영합니다.
 
 | 참격 스킬 (Blade) | 인벤토리/장비 (Inventory) |
 | :---: | :---: |
