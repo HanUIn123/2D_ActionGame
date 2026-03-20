@@ -6,7 +6,8 @@
 # Unity 2D Action Game (개인 프로젝트)
 
 ## ■ 개요
-- 출시작 '타워 브레이커'의 코어 루프를 분석하여 Unity로 프로토타입 재현한 프로젝트입니다.
+- Unity로 제작한 2D 액션 게임 프로젝트입니다.
+- 무한한 층을 등반하며 쏟아져 오는 몬스터들을 무찌르며 다음 스테이지로 나아가고, 보상을 획득하고 성장하는 루프 구조입니다.
 - 클라이언트 환경에서의 플레이 조작감, 타격감 연출, 그리고 '전투-보상-성장'으로 이어지는 핵심 게임 사이클 구현에 집중했습니다.
 
 ## ■ 개발 환경
@@ -17,7 +18,7 @@
 ## ■ 시연 영상
 <p align="center">
   <a href="https://youtu.be/EKcBNb9Uebc">
-    <img src="./GameImage.png" width="50%" alt="2D Action Game 시연 영상">
+    <img src="./GameImage.png" width="35%" alt="2D Action Game 시연 영상">
   </a>
   <br>
   <b>(이미지를 클릭하면 유튜브 시연 영상으로 이동합니다)</b>
