@@ -15,7 +15,7 @@
 - **플랫폼:** PC (Windows Standalone) / Mobile (Android 지원 설계)
 
 ## ■ 시연 영상
-- [2D Action Game 시연 영상](링크_공백)
+- [2D Action Game 시연 영상]((https://youtu.be/EKcBNb9Uebc))
 
 ## ■ 프로젝트 구조 및 주요 소스코드
 <pre>
