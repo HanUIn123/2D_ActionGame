@@ -35,16 +35,18 @@
     │       └── <a href="./Assets/Scripts/MainScene/Player/EquipManager.cs">EquipManager.cs</a> (장비 데이터와 플레이어 스탯 연동 제어)
     └── 📂 <b>BattleScene</b>
         ├── 📂 <b>Managers</b>
-        │   ├── <a href="./Assets/Scripts/BattleScene/Managers/BattleManager.cs">BattleManager.cs</a> (전투 시퀀스 및 스테이지 흐름 관리)
-        │   └── <a href="./Assets/Scripts/BattleScene/Managers/FlockingManager.cs">FlockingManager.cs</a> (몬스터 군집 대열 중앙 제어 시스템)
+        │   └── <a href="./Assets/Scripts/BattleScene/Managers/BattleManager.cs">BattleManager.cs</a> (전투 시퀀스 및 스테이지 흐름 관리)
         ├── 📂 <b>Player</b>
         │   ├── <a href="./Assets/Scripts/BattleScene/Player/PlayerController.cs">PlayerController.cs</a> (전투 조작 및 이동 입력 처리)
         │   ├── <a href="./Assets/Scripts/BattleScene/Player/PlayerCombat.cs">PlayerCombat.cs</a> (공격/방어 및 스킬 발사 시퀀스)
         │   └── <a href="./Assets/Scripts/BattleScene/Player/PlayerStats.cs">PlayerStats.cs</a> (실시간 전투 스탯 및 체력 관리)
         ├── 📂 <b>Monster</b>
-        │   ├── <a href="./Assets/Scripts/BattleScene/Monster/MonsterParent.cs">MonsterParent.cs</a> (피격 점멸 및 사망 로직 공통 추상 클래스)
-        │   ├── <a href="./Assets/Scripts/BattleScene/Monster/Skeleton.cs">Skeleton.cs</a> (일반 몬스터 AI 패턴 구현)
-        │   └── <a href="./Assets/Scripts/BattleScene/Monster/Goblin.cs">Goblin.cs</a> (군집 버프 부여 특수 패턴 구현)
+        │   ├── <a href="./Assets/Scripts/BattleScene/Monster/MonsterParent.cs">MonsterParent.cs</a> (공통 AI 및 피격/사망 추상 클래스)
+        │   ├── <a href="./Assets/Scripts/BattleScene/Monster/FlockingManager.cs">FlockingManager.cs</a> (몬스터 군집 대열 중앙 제어 시스템)
+        │   ├── 📂 <b>MonsterSkeleton</b>
+        │   │   └── <a href="./Assets/Scripts/BattleScene/Monster/MonsterSkeleton/Skeleton.cs">Skeleton.cs</a> (일반 몬스터 AI 패턴 구현)
+        │   └── 📂 <b>MonsterGoblin</b>
+        │       └── <a href="./Assets/Scripts/BattleScene/Monster/MonsterGoblin/Goblin.cs">Goblin.cs</a> (군집 버프 부여 특수 패턴 구현)
         └── 📂 <b>Boss</b>
             ├── <a href="./Assets/Scripts/BattleScene/Boss/BossSkeletonKing.cs">BossSkeletonKing.cs</a> (해골왕: 광역 참격 패턴 구현)
             └── <a href="./Assets/Scripts/BattleScene/Boss/BossGoblinKing.cs">BossGoblinKing.cs</a> (고블린왕: 방어 기믹 파훼 패턴 구현)
@@ -56,7 +58,7 @@
 
 ### 1. 군집 대열 시스템 (Flocking System)
 - **중앙 제어 최적화:** 개별 몬스터가 각자 연산하지 않고 `FlockingManager`가 대열 전체의 이동량을 관리하여 연산 부하를 최소화했습니다.
-- **대열 유지:** 수많은 몬스터가 등장해도 기차와 같은 대열을 일정 간격으로 유지하며 안정적으로 이동합니다.
+- **대열 유지:** 수많은 몬스터가 등장해도 일정 간격의 기차 대열을 유지하며 안정적으로 이동합니다.
 
 | 군집 대열 이동 (Movement) |
 | :---: |
