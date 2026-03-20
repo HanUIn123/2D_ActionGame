@@ -3,17 +3,16 @@
 ![Visual Studio 2022](https://img.shields.io/badge/Visual%20Studio%202022-5C2D91?style=for-the-badge&logo=visualstudio&logoColor=white)
 ![GitHub](https://img.shields.io/badge/GitHub-181717?style=for-the-badge&logo=github&logoColor=white)
 
-# Unity 2D Action Game (과제 테스트 프로토타입)
+# Unity 2D Action Game (개인 프로젝트)
 
 ## ■ 개요
-- 출시작 '타워 브레이커'의 코어 루프를 Unity로 프로토타입 재현한 프로젝트입니다.
-- 클라이언트 환경을 고려한 플레이 조작감, 몰입감, 전투 보상 및 성장 루프 구현을 목표로 제작되었습니다.
-- **Unity / C# 기반으로 제작한 개인 프로젝트(과제 테스트)입니다.**
+- [cite_start]출시작 '타워 브레이커'의 코어 루프를 분석하여 Unity로 프로토타입 재현한 프로젝트입니다. [cite: 59, 61]
+- [cite_start]클라이언트 환경에서의 플레이 조작감, 타격감 연출, 그리고 '전투-보상-성장'으로 이어지는 핵심 게임 사이클 구현에 집중했습니다. [cite: 61, 66]
 
 ## ■ 개발 환경
 - **언어:** C#
 - **개발 도구:** Unity Engine, Visual Studio 2022
-- **플랫폼:** PC (Windows Standalone) / Mobile (Android 지원 설계)
+- [cite_start]**플랫폼:** PC (Windows Standalone) / Mobile (Android 지원 설계) [cite: 62, 63]
 
 ## ■ 시연 영상
 - [2D Action Game 시연 영상](링크_공백)
@@ -21,18 +20,23 @@
 ## ■ 프로젝트 구조 및 주요 소스코드
 <pre>
 📂 <b>Assets</b>
-├── 📂 <b>Scripts</b>
-│   ├── 📂 <b>Managers</b>
-│   │   ├── <b>GameDataManager.cs</b> (재화 데이터 관리 및 싱글톤 패턴 핵심 로직)
-│   │   └── <b>FlockingManager.cs</b> (몬스터 군집 대열 중앙 제어 시스템 구현)
-│   ├── 📂 <b>Player</b>
-│   │   ├── <b>PlayerController.cs</b> (플레이어 이동 및 조작 입력 처리)
-│   │   ├── <b>PlayerCombat.cs</b> (스킬 발사 및 전투 시퀀스 제어)
-│   │   └── <b>PlayerStats.cs</b> (플레이어 능력치 데이터 및 실시간 동기화)
-│   └── 📂 <b>Monsters</b>
-│       ├── <b>MonsterParent.cs</b> (피격, 사망 등 공통 로직 관리 추상 클래스)
-│       ├── <b>Skeleton.cs</b> (일반 근접 공격 패턴 AI 구현)
-│       └── <b>Goblin.cs</b> (몬스터 동료 버프 부여 및 특수 패턴 구현)
+└── 📂 <b>Scripts</b>
+    └── 📂 <b>BattleScene</b>
+        ├── 📂 <b>Managers</b>
+        │   ├── <a href="./Assets/Scripts/BattleScene/Managers/GameDataManager.cs">GameDataManager.cs</a> (재화 및 스테이지 데이터 관리)
+        │   └── <a href="./Assets/Scripts/BattleScene/Managers/FlockingManager.cs">FlockingManager.cs</a> (몬스터 군집 대열 중앙 제어 로직)
+        ├── 📂 <b>Player</b>
+        │   ├── <a href="./Assets/Scripts/BattleScene/Player/PlayerController.cs">PlayerController.cs</a> (입력 시스템 및 조작 처리)
+        │   ├── <a href="./Assets/Scripts/BattleScene/Player/PlayerCombat.cs">PlayerCombat.cs</a> (전투 시퀀스 및 스킬 발사 제어)
+        │   ├── <a href="./Assets/Scripts/BattleScene/Player/PlayerBladeSkill.cs">PlayerBladeSkill.cs</a> (관통 참격 스킬 메커니즘)
+        │   └── <a href="./Assets/Scripts/BattleScene/Player/PlayerStats.cs">PlayerStats.cs</a> (능력치 데이터 및 동기화)
+        ├── 📂 <b>Monster</b>
+        │   ├── <a href="./Assets/Scripts/BattleScene/Monster/MonsterParent.cs">MonsterParent.cs</a> (공통 AI 및 피격/사망 추상 클래스)
+        │   ├── <a href="./Assets/Scripts/BattleScene/Monster/Skeleton.cs">Skeleton.cs</a> (일반 근접 공격 패턴 구현)
+        │   └── <a href="./Assets/Scripts/BattleScene/Monster/Goblin.cs">Goblin.cs</a> (몬스터 군집 버프 부여 패턴)
+        └── 📂 <b>Boss</b>
+            ├── <a href="./Assets/Scripts/BattleScene/Boss/BossSkeletonKing.cs">BossSkeletonKing.cs</a> (보스 전용 스킬 시퀀스)
+            └── <a href="./Assets/Scripts/BattleScene/Boss/BossGoblinKing.cs">BossGoblinKing.cs</a> (방어 시스템 기믹 대응 AI)
 </pre>
 
 ---
@@ -40,43 +44,42 @@
 ## ■ 주요 구현 기능
 
 ### 1. 군집 대열 시스템 (Flocking System)
-- **상대 좌표 기반 중앙 제어:** 개별 객체의 연산 부하를 줄이기 위해 `FlockingManager`가 대열 전체의 이동량을 관리하는 최적화 방식을 적용했습니다.
-- **대열 유지 및 이동:** 수많은 몬스터가 등장해도 기차처럼 일정한 간격을 유지하며, 하나의 offset 수정만으로 전체 군집 이동을 제어합니다.
-- **전투 연출 연동:** 플레이어가 대열에 밀려 화면 밖으로 나갈 시, 코루틴을 활용해 대열 전체를 보간-후진시키는 유기적인 연출을 구현했습니다.
+- [cite_start]**중앙 제어 최적화:** 개별 몬스터가 각자 연산하지 않고 `FlockingManager`가 대열 전체의 이동량을 관리하여 연산 부하를 크게 줄였습니다. [cite: 81, 89]
+- **대열 유지:** 수많은 몬스터가 등장해도 일정한 간격과 기차와 같은 대열을 유지하며 안정적으로 이동합니다.
+- **후진 연출:** 플레이어가 밀려날 시 대열 전체 이동값을 코루틴으로 보간하여 유기적으로 후퇴하는 연출을 적용했습니다.
 
-| 군집 대열 시스템 시연 |
+| 군집 대열 이동 (Movement) |
 | :---: |
-| <img src="./RenewShorts/Flocking.gif" width="300px"> |
+| <img src="./gifs/movement.gif" width="350px"> |
 
-### 2. 플레이어 전투 및 스킬 시스템
-- **컴포넌트 기반 설계:** 조작(Controller), 전투(Combat), 스탯(Stats)으로 역할을 분리하여 유지보수성과 가독성을 높였습니다.
-- **액션 스킬 구현:** 잔상을 남기는 **대쉬**, 대열을 관통하는 **참격**, 체력을 회복하는 **힐** 등 3종의 액티브 스킬을 구현했습니다.
-- **장비 데이터 연동:** 인벤토리 시스템을 통해 장착한 아이템 정보가 플레이어 스탯에 실시간으로 반영되도록 설계했습니다.
+### 2. 플레이어 액션 및 성장 시스템
+- [cite_start]**컴포넌트 기반 설계:** 조작(Controller), 전투(Combat), 스탯(Stats)으로 역할을 분리하여 유지보수성과 가독성을 높였습니다. [cite: 81]
+- [cite_start]**스킬 시스템:** 대열을 관통하는 **참격(Blade)**, 잔상을 남기는 **대쉬**, 체력을 회복하는 **힐** 등 3종의 스킬을 구현했습니다. [cite: 68]
+- [cite_start]**인벤토리 연동:** 습득한 장비를 실시간으로 장착/해제하고, 해당 데이터가 플레이어 스탯에 즉시 반영됩니다. [cite: 72]
 
-| 플레이어 대쉬 스킬 | 플레이어 참격 스킬 |
+| 참격 스킬 (Blade) | 인벤토리/장비 (Inventory) |
 | :---: | :---: |
-| <img src="./RenewShorts/Dash.gif" width="260px"> | <img src="./RenewShorts/Slash.gif" width="260px"> |
+| <img src="./gifs/blade.gif" width="280px"> | <img src="./gifs/inventory.gif" width="280px"> |
 
-### 3. 몬스터 AI 및 상속 구조
-- **추상 클래스 활용:** `MonsterParent`를 상속받아 피격 점멸, 데미지 계산 등 공통 로직을 관리하고 코드 중복을 최소화했습니다.
-- **고유 기믹 구현:** 해골(일반), 고블린(버프), 해골왕(참격 스킬), 고블린왕(방어 시스템 기믹) 등 몬스터별 특화 AI를 구현했습니다.
+### 3. 보스전 및 패턴 기믹
+- [cite_start]**상속 기반 AI:** `MonsterParent` 추상 클래스를 상속받아 코드 중복을 최소화하고 몬스터별 고유 패턴을 오버라이딩했습니다. [cite: 81]
+- [cite_start]**특수 기믹:** 특정 보스는 플레이어의 방어 시스템을 활용해 기절 상태로 만든 후에만 데미지를 입힐 수 있도록 설계했습니다. [cite: 76]
 
-| 일반 몬스터 패턴 | 보스전 기믹 시연 |
+| 보스 패턴 기믹 (Boss2) |
+| :---: |
+| <img src="./gifs/boss2.gif" width="350px"> |
+
+### 4. 시각적 연출 및 스테이지 흐름
+- [cite_start]**타격감 강화:** 피격 시 White 점멸 효과, 데미지 텍스트, 역경직(Hit Freeze)을 통해 생동감을 높였습니다. [cite: 84, 85]
+- **스테이지 전환:** 층 전투 종료 시 화면 확대 연출(StageClear) 및 다음 층으로 넘어가는 스무스한 스크롤링(StageMove)을 구현했습니다.
+
+| 전투 종료 연출 (Clear) | 스테이지 이동 (Move) |
 | :---: | :---: |
-| <img src="./RenewShorts/MonsterAI.gif" width="260px"> | <img src="./RenewShorts/BossGimmick.gif" width="260px"> |
-
-### 4. UI 및 시각적 연출 피드백
-- **몰입감 강화:** 몬스터 피격 시 White 점멸 효과, 데미지 텍스트 연출, 사망 시 파티클 효과 등을 통해 타격감을 극대화했습니다.
-- **직관적 정보 전달:** 보스 등장 경고 UI 연출, 스테이지 진행바, 재화 습득 시 가방 UI 애니메이션 등을 구현했습니다.
-
-| 보스 출몰 경고 연출 | 재화 습득 애니메이션 |
-| :---: | :---: |
-| <img src="./RenewShorts/BossWarning.gif" width="230px"> | <img src="./RenewShorts/CoinGet.gif" width="230px"> |
+| <img src="./gifs/stageClearEffect.gif" width="280px"> | <img src="./gifs/stageMove.gif" width="280px"> |
 
 ---
 
-## ■ 구현 파트 핵심 요약
-- **상대 좌표 기반 중앙 제어:** 군집 대열 이동 최적화 및 연산 효율성 확보
-- **객체 지향적 설계:** 추상 클래스와 컴포넌트화를 통한 확장성 있는 개발 구조 구축
-- **코어 루프 충실 재현:** 몬스터 군집 전투, 재화 습득, 장비 성장에 이르는 전투 루프 구현
-- **디테일한 연출:** 코루틴 보간 및 Shader 활용(피격 점멸 등)으로 액션 RPG 타격감 강화
+## ■ 핵심 역량 요약
+- [cite_start]**시스템 최적화:** 상대 좌표 기반 중앙 제어로 다수 개체 이동 연산 효율 극대화 [cite: 81]
+- [cite_start]**객체 지향 설계:** 추상 클래스와 컴포넌트화를 통한 확장성 있는 코드 구조 구축 [cite: 81]
+- [cite_start]**몰입감 있는 연출:** 코루틴 보간, Shader 활용(점멸), 애니메이션 이벤트 제어로 액션성 강화 [cite: 84]
